@@ -3,473 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Luz do Mundo — A vida de Jesus para crianças | E-book por R$1</title>
-    <meta name="description" content="Baixe 'A Luz do Mundo: a vida e obra de Jesus' por apenas R$1. História para crianças com imagens para colorir. Pague com Pix e receba na hora.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; background:#f8fafc; color: #0f172a; }
-        .shine { position: relative; overflow: hidden; }
-        .shine::after {
-            content:''; position:absolute; top:0; left:-150%; width:50%; height:100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-            transform: skewX(-20deg); animation: shine-move 3.8s infinite;
-        }
-        @keyframes shine-move {
-            0%{left:-150%} 55%{left:150%} 100%{left:150%}
-        }
-        /* Subtle coloring page texture */
-        .coloring-bg {
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(16,185,129,0.045) 0, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(14,165,233,0.035) 0, transparent 50%);
-        }
-    </style>
+    <title>A Luz do Mundo - E-book Infantil para Colorir</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#f8fafc] text-slate-900 antialiased min-h-screen">
-    <!-- Background glow -->
-    <div class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div class="absolute top-[-6%] right-[-8%] w-[460px] h-[460px] bg-emerald-200 rounded-full blur-[120px] opacity-40"></div>
-        <div class="absolute top-[420px] left-[-8%] w-[380px] h-[380px] bg-teal-200 rounded-full blur-[100px] opacity-30"></div>
-    </div>
-
-    <!-- Sticky Header -->
-    <header id="site-header" class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-[#f8fafc]/85 backdrop-blur-xl">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="h-[68px] flex items-center justify-between gap-6">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2.5 shrink-0">
-                    <div class="w-[32px] h-[32px] rounded-xl bg-emerald-600 flex items-center justify-center shadow-md shadow-emerald-600/20">
-                        <span class="text-white font-black text-[13px]">R$</span>
-                    </div>
-                    <span class="font-semibold tracking-tight text-slate-800 text-[17px]">ebook<span class="text-emerald-600">1real</span></span>
-                </a>
-
-                <!-- Nav -->
-                <nav class="hidden md:flex items-center gap-8 text-[14.5px] font-[550] text-slate-600">
-                    <a href="#como-funciona" class="hover:text-slate-900 transition-colors">Como funciona</a>
-                    <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
-                </nav>
-
-                <!-- CTA -->
-                <div class="flex items-center gap-3">
-                    <a href="#checkout" class="inline-flex items-center justify-center h-10 px-4 sm:px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[13.5px] sm:text-[14px] font-semibold shadow-lg shadow-emerald-600/20 transition-all hover:shadow-emerald-600/25 hover:-translate-y-[1px]">
-                        Comprar
-                    </a>
-                    <!-- Mobile menu button -->
-                    <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-xl ring-1 ring-slate-200 bg-white flex items-center justify-center text-slate-600" aria-label="Abrir menu" aria-expanded="false">
-                        <svg id="menu-icon-open" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
-                        <svg id="menu-icon-close" class="hidden" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M6 18L18 6"/></svg>
-                    </button>
+<body>
+    <div class="container">
+        <div class="product-card" id="main-card">
+            <div class="product-image">
+                <div class="book-cover">
+                    <span class="icon">☀️</span>
+                    <span class="cover-title">A Luz do Mundo</span>
                 </div>
             </div>
-        </div>
-        <!-- Mobile nav drawer -->
-        <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 bg-white/95 backdrop-blur-xl">
-            <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col text-[15px] font-medium text-slate-700">
-                <a href="#como-funciona" class="mobile-nav-link py-3 border-b border-slate-100">Como funciona</a>
-                <a href="#faq" class="mobile-nav-link py-3 border-b border-slate-100">FAQ</a>
-                <a href="#checkout" class="mobile-nav-link py-3 text-emerald-700 font-semibold">Comprar por R$1 →</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section class="relative">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 lg:pt-28 pb-14 sm:pb-20">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-                    <!-- Left -->
-                    <div class="lg:col-span-7">
-                        <div class="inline-flex items-center gap-2 bg-amber-50 ring-1 ring-amber-200 text-amber-800 px-3.5 py-1.5 rounded-full text-[12.5px] font-semibold">
-                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                            Oferta por tempo limitado
-                        </div>
-
-                        <h1 class="mt-5 text-[40px] sm:text-[54px] lg:text-[62px] font-black tracking-[-0.022em] leading-[1.04] text-slate-900">
-                            Baixe o e-book<br>
-                            por <span class="text-emerald-600">R$1</span>
-                        </h1>
-
-                        <p class="mt-5 text-[17px] sm:text-[19px] leading-relaxed text-slate-600 max-w-[540px]">
-                            História ilustrada da vida e obra de Jesus, contada de forma simples para crianças. Inclui imagens para colorir e atividades em família.
-                        </p>
-
-                        <div class="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-                            <a href="https://mpago.la/2fPLd95" target="_blank" rel="noopener noreferrer"
-                               class="shine inline-flex w-full sm:w-auto items-center justify-center gap-2.5 h-[56px] px-7 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-[16.5px] shadow-lg shadow-emerald-600/25 transition-all hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-[1px] focus:outline-none focus:ring-4 focus:ring-emerald-200"
-                            >
-                                <!-- Pix diamond icon -->
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path d="M12 3L3.5 12 12 21l8.5-9L12 3Z" fill="white" fill-opacity="0.98"/>
-                                    <path d="M12 6.8 7 12l5 5.2L17 12 12 6.8Z" fill="#059669"/>
-                                </svg>
-                                Pagar com Pix
-                            </a>
-                            <a href="#como-funciona" class="text-center sm:text-left text-[14.5px] font-semibold text-slate-700 hover:text-slate-900 underline underline-offset-4 decoration-slate-300">
-                                Ver como funciona
-                            </a>
-                        </div>
-
-                        <!-- Trust features -->
-                        <div class="mt-7 sm:mt-8 flex flex-wrap gap-x-6 gap-y-2.5 text-[13.5px] text-slate-600">
-                            <span class="flex items-center gap-1.5">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
-                                Download imediato
-                            </span>
-                            <span class="flex items-center gap-1.5">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                Pagamento seguro
-                            </span>
-                            <span class="flex items-center gap-1.5">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                PDF + bônus
-                            </span>
-                        </div>
-
-                        <p class="mt-4 text-[12.5px] text-slate-500">
-                            Pagamento processado com segurança via Mercado Pago.
-                        </p>
-                    </div>
-
-                    <!-- Right - Book mockup -->
-                    <div class="lg:col-span-5">
-                        <div class="relative mx-auto w-full max-w-[420px] lg:ml-auto">
-                            <!-- Soft shadow / glow behind -->
-                            <div class="absolute -inset-8 bg-emerald-100/70 blur-[70px] rounded-[60px] -z-10"></div>
-                            <!-- Book card -->
-                            <div class="relative bg-white rounded-[28px] sm:rounded-[32px] border border-slate-200 shadow-2xl shadow-slate-900/[0.10] overflow-hidden">
-                                <div class="h-[6px] w-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500"></div>
-                                <div class="coloring-bg px-8 sm:px-10 pt-10 sm:pt-12 pb-9 sm:pb-10">
-                                    <!-- Tag -->
-                                    <div class="inline-flex items-center bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-3 py-1 rounded-full text-[11.5px] font-bold uppercase tracking-wider">
-                                        Para crianças
-                                    </div>
-                                    <h2 class="mt-5 text-[34px] sm:text-[38px] font-black tracking-[-0.018em] leading-[1.08] text-slate-900">
-                                        A Luz<br>do Mundo
-                                    </h2>
-                                    <p class="mt-3 text-[15.5px] text-slate-600 font-medium">Vida de Jesus<br>para colorir</p>
-
-                                    <!-- Faux coloring line art -->
-                                    <div class="mt-7 rounded-[18px] bg-slate-50 ring-1 ring-slate-200 px-5 py-5 relative overflow-hidden">
-                                        <div class="flex items-center gap-3 text-slate-400">
-                                            <!-- Simple line icons, coloring-book style -->
-                                            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" class="shrink-0">
-                                                <circle cx="22" cy="22" r="16.5" stroke="#cbd5e1" stroke-width="1.4"/>
-                                                <circle cx="22" cy="22" r="7.5" stroke="#cbd5e1" stroke-width="1.4"/>
-                                                <path d="M22 8v4M22 32v4M8 22h4M32 22h4M12 12l2.8 2.8M29.2 29.2l2.8 2.8M12 32l2.8-2.8M29.2 14.8l2.8-2.8" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
-                                            </svg>
-                                            <div class="text-[12.5px] leading-snug text-slate-500">
-                                                <span class="block font-semibold text-slate-600">História ilustrada</span>
-                                                <span>Páginas para colorir inclusas</span>
-                                            </div>
-                                        <!-- Crayon scribbles - decorative -->
-                                        <svg class="absolute -right-2 -bottom-2 opacity-[0.18]" width="90" height="60" viewBox="0 0 90 60" fill="none">
-                                            <path d="M8 42 C28 18 52 50 78 26" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M10 50 C30 30 55 54 76 36" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round"/>
-                                        </svg>
-                                    </div>
-
-                                    <!-- Price row -->
-                                    <div class="mt-7 flex items-end justify-between">
-                                        <div>
-                                            <div class="text-[12px] text-slate-500 uppercase tracking-wider font-bold">Hoje</div>
-                                            <div class="text-[42px] font-black tracking-[-0.02em] text-slate-900 leading-none">R$1</div>
-                                        </div>
-                                        <div class="text-right text-[12.5px] text-slate-500 pb-1">
-                                            PDF imediato<br>via Pix
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Bottom strip -->
-                                <div class="bg-slate-50 border-t border-slate-200 px-8 sm:px-10 py-4 flex items-center justify-between text-[12.5px] text-slate-600">
-                                    <span class="flex items-center gap-1.5 font-medium">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-                                        ebook1real
-                                    </span>
-                                    <span>História bíblica infantil</span>
-                                </div>
-                            <!-- Floating pix badge -->
-                            <div class="absolute -right-2 sm:right-2 -bottom-4 bg-white rounded-full shadow-xl ring-1 ring-slate-200 px-3.5 py-2 flex items-center gap-2 text-[12.5px] font-semibold text-slate-700">
-                                <span class="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3L3.5 12 12 21l8.5-9L12 3Z" fill="white"/></svg>
-                                </span>
-                                Pix instantâneo
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMO FUNCIONA -->
-        <section id="como-funciona" class="border-y border-slate-200 bg-white/70">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-                <div class="max-w-[640px]">
-                    <h2 class="text-[30px] sm:text-[40px] font-black tracking-[-0.018em] text-slate-900">Como funciona</h2>
-                    <p class="mt-3 text-[16.5px] text-slate-600">Simples, rápido e seguro. Você recebe na hora.</p>
-                </div>
-
-                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-                    <!-- Step 1 -->
-                    <div class="rounded-[24px] bg-[#f8fafc] ring-1 ring-slate-200 px-6 sm:px-7 py-7">
-                        <div class="w-10 h-10 rounded-full bg-emerald-50 ring-1 ring-emerald-200 text-emerald-700 font-extrabold flex items-center justify-center">1</div>
-                        <h3 class="mt-4 font-bold text-[18px] text-slate-900">Clique em Pagar</h3>
-                        <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">Toque no botão “Pagar com Pix” e você vai para o checkout seguro do Mercado Pago.</p>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="rounded-[24px] bg-[#f8fafc] ring-1 ring-slate-200 px-6 sm:px-7 py-7">
-                        <div class="w-10 h-10 rounded-full bg-emerald-50 ring-1 ring-emerald-200 text-emerald-700 font-extrabold flex items-center justify-center">2</div>
-                        <h3 class="mt-4 font-bold text-[18px] text-slate-900">Pague R$1 via Pix</h3>
-                        <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">Pagamento 100% seguro no Mercado Pago. Aprovação instantânea, sem cadastro.</p>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="rounded-[24px] bg-[#f8fafc] ring-1 ring-slate-200 px-6 sm:px-7 py-7">
-                        <div class="w-10 h-10 rounded-full bg-emerald-50 ring-1 ring-emerald-200 text-emerald-700 font-extrabold flex items-center justify-center">3</div>
-                        <h3 class="mt-4 font-bold text-[18px] text-slate-900">Receba o download na hora</h3>
-                        <p class="mt-2 text-[15px] text-slate-600 leading-relaxed">Depois do Pix, você cai direto na página de download. Link vitalício do Google Drive.</p>
-                    </div>
-                </div>
-
-                <div class="mt-8 text-[13.5px] text-slate-500 flex flex-wrap items-center gap-x-5 gap-y-2">
-                    <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Checkout seguro Mercado Pago</span>
-                    <span class="flex items-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> Pix aprova na hora</span>
-                    <span>Acesso imediato e vitalício</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- CHECKOUT -->
-        <section id="checkout" class="py-16 sm:py-24">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-                    <!-- Left copy -->
-                    <div class="lg:col-span-5">
-                        <h2 class="text-[30px] sm:text-[38px] font-black tracking-[-0.018em] text-slate-900 leading-tight">Leve a história de Jesus para as crianças</h2>
-                        <p class="mt-4 text-[16.5px] text-slate-600 leading-relaxed">
-                            “A Luz do Mundo” conta a vida e obra de Jesus em linguagem infantil, com carinho e respeito. Perfeito para ler em família, escola dominical e momentos de fé em casa.
-                        </p>
-                        <ul class="mt-6 space-y-3 text-[15px] text-slate-700">
-                            <li class="flex gap-2.5"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Linguagem simples, fiel e acolhedora</li>
-                            <li class="flex gap-2.5"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Imprima quantas vezes quiser</li>
-                            <li class="flex gap-2.5"><svg class="mt-0.5 shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Lê no celular, tablet ou impresso</li>
-                        </ul>
-                    </div>
-
-                    <!-- Checkout card -->
-                    <div class="lg:col-span-7">
-                        <div class="relative bg-white rounded-[28px] sm:rounded-[32px] border border-slate-200 shadow-2xl shadow-slate-900/[0.08] overflow-hidden max-w-[600px] lg:ml-auto">
-                            <div class="h-[5px] w-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500"></div>
-                            <div class="px-6 sm:px-9 pt-8 sm:pt-9 pb-8 sm:pb-9">
-                                <!-- Title row -->
-                                <div class="flex items-start justify-between gap-4">
-                                    <div>
-                                        <div class="text-[12.5px] font-bold uppercase tracking-wider text-emerald-700">E-book infantil</div>
-                                        <h3 class="text-[26px] sm:text-[28px] font-black tracking-[-0.015em] text-slate-900 mt-1">A Luz do Mundo</h3>
-                                        <p class="text-[14.5px] text-slate-600 mt-1">A vida e obra de Jesus</p>
-                                    </div>
-                                    <div class="text-right shrink-0">
-                                        <div class="text-[12px] text-slate-500">por apenas</div>
-                                        <div class="text-[34px] font-black tracking-[-0.018em] text-slate-900 leading-none">R$1</div>
-                                    </div>
-                                </div>
-
-                                <!-- Included list -->
-                                <div class="mt-7 rounded-[20px] bg-slate-50 ring-1 ring-slate-200 px-5 sm:px-6 py-5 sm:py-6">
-                                    <p class="text-[12.5px] font-bold uppercase tracking-wider text-slate-600 mb-3">O que está incluído</p>
-                                    <ul class="space-y-3 text-[15px] text-slate-700">
-                                        <li class="flex gap-3">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" class="shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>
-                                            <span><strong>E-book PDF ilustrado</strong> — vida de Jesus</span>
-                                        </li>
-                                        <li class="flex gap-3">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" class="shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>
-                                            <span><strong>Imagens para colorir</strong> — imprima em casa</span>
-                                        </li>
-                                        <li class="flex gap-3">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" class="shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>
-                                            <span><strong>História em linguagem infantil</strong></span>
-                                        </li>
-                                        <li class="flex gap-3">
-                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.2" class="shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"/></svg>
-                                            <span><strong>Atividade em família</strong></span>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <!-- Pay button -->
-                                <a id="pay-button" href="https://mpago.la/2fPLd95" target="_blank" rel="noopener noreferrer"
-                                   class="shine mt-6 w-full inline-flex items-center justify-center gap-2.5 h-[56px] rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-[16.5px] shadow-lg shadow-emerald-600/25 transition-all hover:shadow-xl hover:shadow-emerald-600/30 hover:-translate-y-[1px] focus:outline-none focus:ring-4 focus:ring-emerald-200"
-                                >
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                        <path d="M12 3L3.5 12 12 21l8.5-9L12 3Z" fill="white" fill-opacity="0.98"/>
-                                        <path d="M12 6.8 7 12l5 5.2L17 12 12 6.8Z" fill="#059669"/>
-                                    </svg>
-                                    Pagar com Pix — R$1
-                                </a>
-
-                                <div class="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[12.5px] text-slate-500">
-                                    <span class="flex items-center gap-1.5">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                        Mercado Pago
-                                    </span>
-                                    <span>Download imediato</span>
-                                    <span>Acesso vitalício</span>
-                                </div>
-
-                                <!-- Support note -->
-                                <div class="mt-5 rounded-xl bg-amber-50 ring-1 ring-amber-200 px-4 py-3 text-[13.3px] text-amber-900">
-                                    <strong>Dica:</strong> imprima em papel sulfite A4. Fica perfeito com lápis de cor e canetinha.
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="text-center lg:text-right text-[12.5px] text-slate-500 mt-4 max-w-[600px] lg:ml-auto">
-                            Precisa de ajuda? <a href="mailto:oi@ebook1real.com.br" class="underline underline-offset-2 hover:text-slate-700">oi@ebook1real.com.br</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq" class="border-t border-slate-200 bg-white/75">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-                <h2 class="text-[28px] sm:text-[36px] font-black tracking-[-0.015em] text-slate-900">Perguntas frequentes</h2>
+            <div class="product-info">
+                <h1>A Luz do Mundo</h1>
+                <p class="description">A linda história de Jesus Cristo contada de forma simples e envolvente para as crianças. Um e-book repleto de ilustrações abençoadas e prontas para colorir! <br><br><strong>O arquivo PDF será liberado para download nesta mesma tela, imediatamente após o pagamento.</strong></p>
                 
-                <div class="mt-8 divide-y divide-slate-200 rounded-[24px] border border-slate-200 bg-[#fcfdff] overflow-hidden">
-                    <!-- Q1 Required -->
-                    <details class="group open" open>
-                        <summary class="flex w-full items-start justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 cursor-pointer list-none">
-                            <span class="font-semibold text-slate-900">O que vou receber?</span>
-                            <svg class="mt-1 w-4 h-4 text-slate-500 transition-transform group-open:rotate-180 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                        </summary>
-                        <div class="px-5 sm:px-7 pb-5 sm:pb-6 -mt-1 text-[15px] leading-relaxed text-slate-600">
-                            Você recebe o PDF “A Luz do Mundo” com a história da vida de Jesus adaptada para crianças, mais as páginas para colorir. Liberação imediata após R$1 via Pix.
-                        </div>
-                    </details>
-
-                    <!-- Q2 -->
-                    <details class="group">
-                        <summary class="flex w-full items-start justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 cursor-pointer list-none">
-                            <span class="font-semibold text-slate-900">Como recebo o arquivo?</span>
-                            <svg class="mt-1 w-4 h-4 text-slate-500 transition-transform group-open:rotate-180 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                        </summary>
-                        <div class="px-5 sm:px-7 pb-5 sm:pb-6 -mt-1 text-[15px] leading-relaxed text-slate-600">
-                            Após o pagamento via Pix no Mercado Pago, você é redirecionado automaticamente para a página de download, com link do Google Drive. Acesso vitalício.
-                        </div>
-                    </details>
-
-                    <!-- Q3 -->
-                    <details class="group">
-                        <summary class="flex w-full items-start justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 cursor-pointer list-none">
-                            <span class="font-semibold text-slate-900">Posso imprimir as páginas para colorir?</span>
-                            <svg class="mt-1 w-4 h-4 text-slate-500 transition-transform group-open:rotate-180 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                        </summary>
-                        <div class="px-5 sm:px-7 pb-5 sm:pb-6 -mt-1 text-[15px] leading-relaxed text-slate-600">
-                            Sim! O PDF é formato A4, pronto para imprimir em casa. Você pode imprimir quantas cópias quiser para uso pessoal e familiar.
-                        </div>
-                    </details>
-
-                    <!-- Q4 -->
-                    <details class="group">
-                        <summary class="flex w-full items-start justify-between gap-4 px-5 sm:px-7 py-5 sm:py-6 cursor-pointer list-none">
-                            <span class="font-semibold text-slate-900">O pagamento é seguro?</span>
-                            <svg class="mt-1 w-4 h-4 text-slate-500 transition-transform group-open:rotate-180 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                        </summary>
-                        <div class="px-5 sm:px-7 pb-5 sm:pb-6 -mt-1 text-[15px] leading-relaxed text-slate-600">
-                            Sim. O pagamento é processado diretamente pelo Mercado Pago, com Pix instantâneo. Não armazenamos dados do seu cartão ou Pix.
-                        </div>
-                    </details>
+                <div class="price-tag">
+                    <span class="currency">R$</span>
+                    <span class="amount">1,00</span>
                 </div>
-
-                <!-- Final CTA bar -->
-                <div class="mt-10 rounded-[22px] bg-emerald-50 ring-1 ring-emerald-200 px-5 sm:px-7 py-5 sm:py-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div>
-                        <div class="font-bold text-slate-900">Pronto para baixar por R$1?</div>
-                        <div class="text-[14px] text-emerald-800">Acesso imediato • PDF + páginas para colorir</div>
+                
+                <form id="checkout-form">
+                    <div class="input-group">
+                        <label for="name">Nome do Responsável</label>
+                        <input type="text" id="name" required placeholder="Seu nome">
                     </div>
-                    <a href="https://mpago.la/2fPLd95" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center justify-center h-12 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-[14.5px] shadow shadow-emerald-600/20 transition shrink-0">
-                        Pagar com Pix
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-slate-500">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-7 h-7 rounded-lg bg-emerald-600 flex items-center justify-center">
-                        <span class="text-white font-black text-[11px]">R$</span>
+                    <div class="input-group">
+                        <label for="lastname">Sobrenome</label>
+                        <input type="text" id="lastname" required placeholder="Seu sobrenome">
                     </div>
-                    <span>© 2026 A Luz do Mundo</span>
-                </div>
-                <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-                    <span>ebook1real</span>
-                    <span class="hidden sm:inline text-slate-300">•</span>
-                    <a href="mailto:oi@ebook1real.com.br" class="hover:text-slate-700 underline-offset-2">oi@ebook1real.com.br</a>
-                    <span class="hidden sm:inline text-slate-300">•</span>
-                    <span>Conteúdo digital para uso pessoal</span>
-                </div>
+                    <div class="input-group">
+                        <label for="email">E-mail para contato</label>
+                        <input type="email" id="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="cpf">CPF (Para emissão do Pix)</label>
+                        <input type="text" id="cpf" required pattern="\d{11}" title="Digite um CPF válido com 11 dígitos (apenas números)" placeholder="Apenas números">
+                    </div>
+                    <button type="submit" id="btn-submit">Gerar Pix de R$ 1,00</button>
+                </form>
             </div>
         </div>
-    </footer>
 
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('menu-icon-open');
-        const iconClose = document.getElementById('menu-icon-close');
+        <div class="product-card hidden" id="payment-card">
+            <h2>Quase lá!</h2>
+            <p class="payment-instructions">Abra o aplicativo do seu banco, escolha a opção "Pagar com Pix" e escaneie o QR Code ou utilize o código Copia e Cola abaixo.</p>
+            
+            <div class="qr-container">
+                <img id="qr-code-img" src="" alt="QR Code Pix">
+            </div>
+            
+            <div class="copia-cola-container">
+                <input type="text" id="pix-copia-cola" readonly value="Carregando código...">
+                <button type="button" id="btn-copy">Copiar Código</button>
+            </div>
+            
+            <div class="status-indicator">
+                <div class="spinner"></div>
+                <span>Aguardando a confirmação do seu banco...</span>
+            </div>
+        </div>
 
-        if (menuBtn && menu) {
-            menuBtn.addEventListener('click', () => {
-                const isHidden = menu.classList.contains('hidden');
-                menu.classList.toggle('hidden', !isHidden ? true : false);
-                if (isHidden) {
-                    menu.classList.remove('hidden');
-                    iconOpen.classList.add('hidden');
-                    iconClose.classList.remove('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'true');
-                } else {
-                    menu.classList.add('hidden');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
-                    menuBtn.setAttribute('aria-expanded', 'false');
-                });
-            });
-        }
-
-        // Header shadow on scroll
-        const header = document.getElementById('site-header');
-        const onScroll = () => {
-            if (window.scrollY > 6) {
-                header.classList.add('shadow-sm', 'shadow-slate-900/[0.04]');
-            } else {
-                header.classList.remove('shadow-sm', 'shadow-slate-900/[0.04]');
-            }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-    </script>
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
-<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;var a=target.closest?target.closest("a[href]"):null;if(!a||!a.href||!/^https?:\/\//.test(a.href))return;if(a.href.replace(/#.*$/,"")===loc)return;var productId=extractProductId(target)||extractProductId(a);if(!productId)return;e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*")},true)})();</script></body>
+        <div class="product-card hidden" id="success-card">
+            <div class="success-icon">✨🙏</div>
+            <h2>Pagamento Confirmado!</h2>
+            <p>Que alegria! O seu pagamento foi aprovado e o e-book já está disponível.</p>
+            <a href="ebook.pdf" download class="btn-download">Baixar E-book "A Luz do Mundo"</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
